@@ -58,10 +58,11 @@ The following security and reconnaissance tools will be installed automatically:
 ```bash 
 git clone https://github.com/Jeesun-38/RED-LAB-TOOLS.git && cd RED-LAB-TOOLS && chmod +x zx3rr.sh && ./zx3rr.sh
 
+```
 🔴 **Note:** The script must be run with **root privileges** to install tools and update system environment variables properly.
 
 
-##☕ Hold on... Installation Takes Time! 🕒
+☕ Hold on... Installation Takes Time! 🕒
 🚀 Installing all these powerful tools will take a few moments! So, sit back, relax, and grab a cup of coffee ☕ while the magic happens. You’ll be hacking away in no time! 😎
 
 ## 🛡️ Disclaimer  
