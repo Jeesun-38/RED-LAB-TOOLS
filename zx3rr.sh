@@ -66,7 +66,6 @@ TOOLS=(
     "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
     "github.com/projectdiscovery/cdncheck/cmd/cdncheck@latest"
     "github.com/projectdiscovery/wappalyzergo/cmd/update-fingerprints@latest"
-    "github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
     "github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest"
     "github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
     "github.com/projectdiscovery/notify/cmd/notify@latest"
