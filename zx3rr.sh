@@ -88,6 +88,8 @@ TOOLS=(
     "github.com/projectdiscovery/tlsx/cmd/tlsx@latest"
     "github.com/projectdiscovery/uncover/cmd/uncover@latest"
     "github.com/projectdiscovery/urlfinder/cmd/urlfinder@latest"
+    "github.com/tomnomnom/waybackurls@latest"
+    "github.com/ffuf/ffuf/v2@latest"
 )
 
 echo -e "\n${BOLD}${DEEP_GREEN}Installing ProjectDiscovery Tools...${RESET}"
