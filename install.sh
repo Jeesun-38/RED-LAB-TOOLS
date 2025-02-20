@@ -23,13 +23,13 @@ EOF
 echo -e "\e[0m"
 
 echo -e "\e[31;40;1m
-	\e[31;4mCTRL+C:\e[0m exit          \e[33;4mAuthor:\e[0m zetsu-X-3rr	\e[33;4mGithub:\e[0m github: https://github.com/Jeesun-38
+	\e[31;4mCTRL+C:\e[0m exit          \e[33;4mAuthor:\e[0m zetsu-X-3rr	\e[33;4mGithub: https://github.com/Jeesun-38
 \e[0m"
 
-echo -e "\e[37m\e[36mLAB-Requirement:[1]\e[36m System Update \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m LAB-TOOLS:[2]\e[36m Go Based Tools \e[0m"
+echo -e "\e[37m\e[36mLAB-Requirement:\e[32[1]\e[36m System Update \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m LAB-TOOLS:\e[32[2]\e[36m Go Based Tools \e[0m"
 
 # Choosing the Option
-read -p "Input: " lab1_number
+read -p "Input Number: " lab1_number
 if [[ "$lab1_number" == "1" ]]; then
     clear
     echo -e "\e[38;5;213m Installing the update and dependencies...\e[0m"
