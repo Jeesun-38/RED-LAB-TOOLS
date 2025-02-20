@@ -56,7 +56,7 @@ The following security and reconnaissance tools will be installed automatically:
 ### 📥 Clone the Repository  &  Run the Installer 🔥
 
 ```bash 
-git clone https://github.com/Jeesun-38/RED-LAB-TOOLS.git && cd RED-LAB-TOOLS && chmod +x zx3rr.sh && ./zx3rr.sh
+git clone https://github.com/Jeesun-38/RED-LAB-TOOLS.git && cd RED-LAB-TOOLS && chmod +x install.sh && ./install.sh
 
 ```
 🔴 **Note:** The script must be run with **root privileges** to install tools and update system environment variables properly.
