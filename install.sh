@@ -26,7 +26,7 @@ echo -e "\e[31;40;1m
 	\e[31;4mCTRL+C:\e[0m exit          \e[33;4mAuthor:\e[0m zetsu-X-3rr	\e[33;4mGithub: https://github.com/Jeesun-38
 \e[0m"
 
-echo -e "\e[37m\e[36mLAB-Requirement:\e[32[1]\e[36m System Update \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m LAB-TOOLS:\e[32[2]\e[36m Go Based Tools \e[0m"
+echo -e "\e[37m\e[36mLAB-Requirement:${DEEP_GREEN}[1]\e[36m System Update \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m LAB-TOOLS:${DEEP_GREEN}[2]\e[36m Go Based Tools \e[0m"
 
 # Choosing the Option
 read -p "Input Number: " lab1_number
