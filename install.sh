@@ -116,6 +116,11 @@ EOF
         "github.com/projectdiscovery/urlfinder/cmd/urlfinder@latest"
         "github.com/tomnomnom/waybackurls@latest"
         "github.com/ffuf/ffuf/v2@latest"
+        "github.com/tomnomnom/waybackurls@latest"
+        "github.com/lc/gau/v2/cmd/gau@latest"
+        "github.com/hakluke/hakrawler@latest"
+        "github.com/projectdiscovery/httpx/cmd/httpx@latest"
+        "github.com/tomnomnom/httprobe@latest"
     )
 
     echo -e "\n${BOLD}${ORANGE}Installing ProjectDiscovery Tools...${RESET}"
