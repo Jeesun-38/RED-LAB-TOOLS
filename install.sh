@@ -89,8 +89,8 @@ elif [[ $lab1_number == 2 || $lab1_number == 02 ]]; then
         
         cat <<EOF > $GO_ENV_FILE
 export GOROOT=/usr/local/go
-export GOPATH=${HOME}/go
-export PATH=$GOPATH/bin:$GOROOT/bin:${HOME}/.local/bin:$PATH
+export GOPATH=\${HOME}/go
+export PATH=\$GOPATH/bin:\$GOROOT/bin:\${HOME}/.local/bin:\$PATH
 EOF
         
         if ! grep -q "source $GO_ENV_FILE" "$PROFILE_FILE"; then
