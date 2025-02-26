@@ -11,22 +11,37 @@ RESET="\e[0m"
 # Banner
 echo -e "\e[38;5;196m"
 cat << "EOF"
-,---.    ,---.   ,'|"\            ,-.      .--.  ,---.            _______  .---.   .---.  ,-.      .---. 
-| .-.\   | .-'   | |\ \           | |     / /\ \ | .-.\          |__   __|/ .-. ) / .-. ) | |     ( .-._)
-| `-'/   | `-.   | | \ \ ____.___ | |    / /__\ \| |-' \ ____.___  )| |   | | |(_)| | |(_)| |    (_) \   
-|   (    | .-'   | |  \ \`----==='| |    |  __  || |--. \`----==='(_) |   | | | | | | | | | |    _  \ \  
-| |\ \   |  `--. /(|`-' /         | `--. | |  |)|| |`-' /           | |   \ `-' / \ `-' / | `--.( `-'  ) 
-|_| \)\  /( __.'(__)`--'          |( __.'|_|  (_)/( `--'            `-'    )---'   )---'  |( __.'`----'  
-    (__)(__)                      (_)           (__)                      (_)     (_)     (_)            
+
+
+   __    __   ___          __    _      ___        _____   ___   ___   __  __    
+  /__\  /__\ /   \        / /   /_\    / __\      /__   \ /___\ /___\ / / / _\   
+ / \// /_\  / /\ /_____  / /   //_\\  /__\// _____  / /\///  ////  /// /  \ \    
+/ _  \//__ / /_//|_____|/ /___/  _  \/ \/  \|_____|/ /  / \_/// \_/// /____\ \   
+\/ \_/\__//___,'        \____/\_/ \_/\_____/       \/   \___/ \___/ \____/\__/   
+                                                                                 
+
+
 Coded by TEAM ZX3RR
 EOF
 echo -e "\e[0m"
 
 echo -e "\e[31;40;1m
-	\e[31;4mCTRL+C:\e[0m exit          \e[33;4mAuthor:\e[0m zetsu-X-3rr	\e[33;4mGithub: https://github.com/Jeesun-38
+\t\e[31;4mCTRL+C:\e[0m exit          \e[33;4mAuthor:\e[0m zetsu-X-3rr\t\e[33;4mGithub: https://github.com/Jeesun-38
 \e[0m"
 
 echo -e "\e[37m\e[36mLAB-Requirement:${DEEP_GREEN}[1]\e[36m System Update \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m LAB-TOOLS:${DEEP_GREEN}[2]\e[36m Go Based Tools \e[0m"
+echo -e "\n \e[0m"
+echo -e "\e[37m\e[36m PYTHON-TOOLS:${DEEP_GREEN}[3]\e[36m Python Based Tools \e[0m" "\e[37m|\e[0m" "\e[37m\e[36m PYTHON-FIX:${DEEP_GREEN}[4]\e[36m Python Install Error Fix \e[0m"
+echo -e "\n"
+# Function to check if a tool is installed
+check_install() {
+    if command -v "$1" &> /dev/null; then
+        echo -e "${LIGHT_GREEN}$1 is already installed.${RESET}"
+        return 0
+    else
+        return 1
+    fi
+}
 
 # Choosing the Option
 read -p "Input Number: " lab1_number
@@ -44,7 +59,7 @@ elif [[ $lab1_number == 2 || $lab1_number == 02 ]]; then
     clear
     echo -e "\e[38;5;220m Installing Go Based Tools...\e[0m"
     sleep 3
-
+    
     USER_SHELL=$(basename "$SHELL")
     if [ "$USER_SHELL" == "bash" ]; then
         PROFILE_FILE="$HOME/.bashrc"
@@ -74,8 +89,8 @@ elif [[ $lab1_number == 2 || $lab1_number == 02 ]]; then
         
         cat <<EOF > $GO_ENV_FILE
 export GOROOT=/usr/local/go
-export GOPATH=\${HOME}/go
-export PATH=\$GOPATH/bin:\$GOROOT/bin:\${HOME}/.local/bin:\$PATH
+export GOPATH=${HOME}/go
+export PATH=$GOPATH/bin:$GOROOT/bin:${HOME}/.local/bin:$PATH
 EOF
         
         if ! grep -q "source $GO_ENV_FILE" "$PROFILE_FILE"; then
@@ -87,7 +102,8 @@ EOF
     else
         echo -e "${DEEP_GREEN}Go (${INSTALLED_GO_VERSION}) is already up-to-date.${RESET}"
     fi
-
+    
+    # Install ProjectDiscovery Tools
     TOOLS=(
         "github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest"
         "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
@@ -116,6 +132,11 @@ EOF
         "github.com/projectdiscovery/urlfinder/cmd/urlfinder@latest"
         "github.com/tomnomnom/waybackurls@latest"
         "github.com/ffuf/ffuf/v2@latest"
+        "github.com/tomnomnom/waybackurls@latest"
+        "github.com/lc/gau/v2/cmd/gau@latest"
+        "github.com/hakluke/hakrawler@latest"
+        "github.com/projectdiscovery/httpx/cmd/httpx@latest"
+        "github.com/tomnomnom/httprobe@latest"
     )
 
     echo -e "\n${BOLD}${ORANGE}Installing ProjectDiscovery Tools...${RESET}"
@@ -131,8 +152,43 @@ EOF
 
     echo -e "\n${BOLD}${LIGHT_GREEN}ALL THE TOOLS ARE INSTALLED!! ENJOY!!${RESET}"
 
+elif [[ $lab1_number == 3 || $lab1_number == 03 ]]; then
+    clear
+    echo -e "\e[38;5;220m Installing Python Based Tools...\e[0m"
+    sleep 2
+    
+    check_install git || sudo apt update && sudo apt install git -y
+    check_install python3 || sudo apt update && sudo apt install python3 python3-pip -y
+    
+    check_install wafw00f || {
+        echo -e "\e[38;5;220m Installing WafW00f...\e[0m"
+        git clone https://github.com/enablesecurity/wafw00f.git
+        cd wafw00f/
+        python3 -m pip install .
+        cd ..
+        echo -e "${LIGHT_GREEN}WafW00f installed successfully!${RESET}"
+    }
+    
+    check_install dirsearch || sudo apt-get install dirsearch -y && echo -e "${LIGHT_GREEN}Dirsearch installed successfully!${RESET}"
+    
+        
+     echo -e "\n${BOLD}${DEEP_GREEN}ALL THE PYTHON TOOLS ARE INSTALLED!! ENJOY!!${RESET}"
+        
+     echo -e "\n${BOLD}${ORANGE}IF THERE IS ANY ERROR PLEASE PRESS [4]!!${RESET}"
+
+elif [[ $lab1_number == 4 || $lab1_number == 04 ]]; then
+    clear
+    echo -e "\e[38;5;220m Fixing Python Install Errors...\e[0m"
+    sleep 3
+    python3 -V
+    sudo rm -rf /usr/lib/python3.12/EXTERNALLY-MANAGED
+    sudo rm -rf /usr/lib/python3.13/EXTERNALLY-MANAGED
+    echo -e "${LIGHT_GREEN}Python install errors fixed!${RESET}"
+    
 else
-    echo -e "\n${BOLD}${DEEP_RED}PLEASE TYPE CAREFULLY AGAIN!! THANKS!!${RESET}"
+    echo -e "\n${BOLD}${DEEP_RED}PLEASE Check The Input Number AGAIN!! THANKS!!${RESET}"
+    
 fi
+
 # Restart the script
-exec "$0"
+exec "$(command -v bash)" "$0"
